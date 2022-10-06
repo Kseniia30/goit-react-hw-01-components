@@ -64,7 +64,7 @@ export const App = () => {
         color: 'red',
         marginTop: 20,
       }}>TASK 3</h1>
-      <FriendList friends={friends} />;
+      <FriendList friends={friends} />
 
 
       <h1

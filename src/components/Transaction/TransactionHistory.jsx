@@ -1,6 +1,9 @@
+import PropTypes from 'prop-types';
+import css from "./Transaction.module.css"
+
 export const TransactionHistory = ({ items }) => {
     return (
-        <table className="transaction-history">
+        <table className={css.transactionHistory}>
             <TransactionTHead />
             <TransactionTBody items={items} />
         </table>
@@ -29,5 +32,16 @@ const TransactionTBody = ({ items }) => {
                 </tr>
             ))}
         </tbody>
+    )
+}
+
+TransactionHistory.propTypes = {
+    items: PropTypes.arrayOf(
+        PropTypes.exact({
+            id: PropTypes.string,
+            type: PropTypes.string,
+            amount: PropTypes.string,
+            currency: PropTypes.string,
+        }),
     )
 }

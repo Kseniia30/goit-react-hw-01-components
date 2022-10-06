@@ -1,0 +1,14 @@
+.statistics {}
+.title {}
+.statList {
+    display: flex;
+    text-align: center;
+}
+.item {
+    width: 38px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.label {}
+.percentage {}

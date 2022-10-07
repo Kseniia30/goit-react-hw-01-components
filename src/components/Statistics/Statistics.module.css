@@ -1,6 +1,6 @@
 .statistics {}
 .title {}
-.statList {
+.statlist {
     display: flex;
     text-align: center;
 }

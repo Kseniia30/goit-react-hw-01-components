@@ -9,15 +9,21 @@ export const Statistics = ({ title, stats }) => {
 
             <ul className={css.statlist} id="STATLIST">
                 {stats.map(stat => (
-                    <li className={css.item} key={stat.id}>
-                        <span className={css.label}>{stat.label} </span>
-                        <span className={css.percentage}>{stat.percentage}%</span>
-                    </li>
+                    <StatItem key={ stat.id} stat={stat} />
                 ))}
             </ul>
     </section>
     );
 };
+
+const StatItem = ({stat }) => {
+    return (
+        <li className={css.item} key={stat.id} style={{backgroundColor: getRandomHexColor()}}>
+            <span className={css.label}>{stat.label} </span>
+            <span className={css.percentage}>{stat.percentage}%</span>
+        </li>
+    )
+}
 
 Statistics.propTypes = {
     stats: PropTypes.arrayOf(
@@ -30,3 +36,13 @@ Statistics.propTypes = {
 }
 
 
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
+// const liItems = document.querySelectorAll("#STATLIST>li")
+// liItems.forEach(item => {
+//     item.style.backgroundColor = getRandomHexColor()
+// })

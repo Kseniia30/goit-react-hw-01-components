@@ -4,17 +4,21 @@ import css from "./Friends.module.css";
 export const FriendList = ({ friends }) => {
     return (
         <ul className={css.friendList}>
-            {friends.map(({id, isOnline, avatar, name}) => (
-                <li className={css.friendsItem} key={id}>
-                    <span className={css.status} style={{backgroundColor: isOnline ? "green" : "red" }}>{isOnline}</span>
-                    <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
-                    <p className={css.friendsName}>{ name}</p>
-                </li>
+            {friends.map(friend => (
+                <FriendListItem key={friend.id} friend={ friend} />
             ))}
         </ul>
     )
 }
-
+const FriendListItem = ({friend: { id, isOnline, avatar, name }}) => {
+    return (
+        <li className={css.friendsItem} key={id}>
+            <span className={css.status} style={{backgroundColor: isOnline ? "green" : "red" }}>{isOnline}</span>
+            <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
+            <p className={css.friendsName}>{ name}</p>
+        </li>
+    )
+}
 FriendList.protoTypes = {
     friends: PropTypes.arrayOf(
         PropTypes.exact({

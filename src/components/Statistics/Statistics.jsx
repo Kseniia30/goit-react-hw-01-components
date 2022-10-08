@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
+import "./statictic"
 
 export const Statistics = ({ title, stats }) => {
     return (
@@ -28,16 +29,4 @@ Statistics.propTypes = {
     )
 }
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
-
-const liItems = document.querySelectorAll("#STATLIST>li")
-setTimeout(() => {
-    liItems.forEach(item => {
-    item.style.backgroundColor = getRandomHexColor()
-})
-}, 100);
 
